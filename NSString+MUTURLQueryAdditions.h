@@ -26,6 +26,11 @@ THE SOFTWARE.
 
 @interface NSString (MUTURLQueryAdditions)
 
+- (NSMutableDictionary *)mutableDictionaryByParsingURLQueryWithEncoding:(NSStringEncoding)encoding;
+- (NSMutableDictionary *)mutableDictionaryByParsingURLQuery;
+- (NSMutableArray *)mutableArrayByParsingURLQueryWithEncoding:(NSStringEncoding)encoding;
+- (NSMutableArray *)mutableArrayByParsingURLQuery;
+
 - (NSDictionary *)dictionaryByParsingURLQueryWithEncoding:(NSStringEncoding)encoding;
 - (NSDictionary *)dictionaryByParsingURLQuery;
 - (NSArray *)arrayByParsingURLQueryWithEncoding:(NSStringEncoding)encoding;

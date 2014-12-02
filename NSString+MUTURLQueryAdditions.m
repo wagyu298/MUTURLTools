@@ -27,7 +27,7 @@ THE SOFTWARE.
 
 @implementation NSString (MUTURLQueryAdditions)
 
-- (NSDictionary *)dictionaryByParsingURLQueryWithEncoding:(NSStringEncoding)encoding;
+- (NSMutableDictionary *)mutableDictionaryByParsingURLQueryWithEncoding:(NSStringEncoding)encoding;
 {
     // Based upon http://stackoverflow.com/questions/8756683/best-way-to-parse-url-string-to-get-values-for-keys
     NSMutableDictionary *queryStringDictionary = [[NSMutableDictionary alloc] init];
@@ -47,12 +47,12 @@ THE SOFTWARE.
     return queryStringDictionary;
 }
 
-- (NSDictionary *)dictionaryByParsingURLQuery;
+- (NSMutableDictionary *)mutableDictionaryByParsingURLQuery;
 {
-    return [self dictionaryByParsingURLQueryWithEncoding:NSUTF8StringEncoding];
+    return [self mutableDictionaryByParsingURLQueryWithEncoding:NSUTF8StringEncoding];
 }
 
-- (NSArray *)arrayByParsingURLQueryWithEncoding:(NSStringEncoding)encoding;
+- (NSMutableArray *)mutableArrayByParsingURLQueryWithEncoding:(NSStringEncoding)encoding;
 {
     NSMutableArray *queryStringArray = [[NSMutableArray alloc] init];
     NSArray *urlComponents = [self componentsSeparatedByString:@"&"];
@@ -73,9 +73,29 @@ THE SOFTWARE.
     return queryStringArray;
 }
 
-- (NSArray *)arrayByParsingURLQuery;
+- (NSMutableArray *)mutableArrayByParsingURLQuery;
 {
-    return [self arrayByParsingURLQueryWithEncoding:NSUTF8StringEncoding];
+    return [self mutableArrayByParsingURLQueryWithEncoding:NSUTF8StringEncoding];
+}
+
+- (NSDictionary *)dictionaryByParsingURLQueryWithEncoding:(NSStringEncoding)encoding
+{
+    return [self mutableDictionaryByParsingURLQueryWithEncoding:encoding];
+}
+
+- (NSDictionary *)dictionaryByParsingURLQuery
+{
+    return [self mutableDictionaryByParsingURLQuery];
+}
+
+- (NSArray *)arrayByParsingURLQueryWithEncoding:(NSStringEncoding)encoding
+{
+    return [self mutableArrayByParsingURLQueryWithEncoding:encoding];
+}
+
+- (NSArray *)arrayByParsingURLQuery
+{
+    return [self mutableArrayByParsingURLQuery];
 }
 
 @end
