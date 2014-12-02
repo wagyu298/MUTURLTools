@@ -121,7 +121,7 @@ THE SOFTWARE.
     }
 
     if (hier_end == -1)
-        hier_end = len;
+        hier_end = (int)len;
     if (!(hier_end - hier_begin >= 2 && s[hier_begin] == L'/' &&
           s[hier_begin+1] == L'/')) {
         _path = [aString substringWithRange:NSMakeRange(hier_begin, hier_end - hier_begin)];

@@ -104,6 +104,8 @@ static int inline flagged(punycode_uint bcp)
 }
 #endif
 
+#if 0
+
 /* encode_basic(bcp,flag) forces a basic code point to lowercase */
 /* if flag is zero, uppercase if flag is nonzero, and returns    */
 /* the resulting code point.  The code point is unchanged if it  */
@@ -115,6 +117,8 @@ static inline char encode_basic(punycode_uint bcp, int flag)
   bcp -= (bcp - 97 < 26) << 5;
   return bcp + ((!flag && (bcp - 65 < 26)) << 5);
 }
+
+#endif
 
 /* Returns NSStringEncoding for UTF32 */
 static NSStringEncoding utf32_encoding(void)
