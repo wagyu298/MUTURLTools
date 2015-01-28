@@ -117,7 +117,9 @@ THE SOFTWARE.
         if (hier_end == -1)
             hier_end = i;
         ++i;
-        _fragment = [aString substringWithRange:NSMakeRange(i, len - i)];
+        if (i < len) {
+            _fragment = [aString substringWithRange:NSMakeRange(i, len - i)];
+        }
     }
 
     if (hier_end == -1)
