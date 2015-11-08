@@ -49,4 +49,15 @@ THE SOFTWARE.
     return [self stringByComposingURLQueryUsingEncoding:NSUTF8StringEncoding];
 }
 
+- (NSData *)dataByComposingURLQueryUsingEncoding:(NSStringEncoding)encoding
+{
+    NSString *s = [self stringByComposingURLQueryUsingEncoding:encoding];
+    return [s dataUsingEncoding:encoding];
+}
+
+- (NSData *)dataByComposingURLQuery
+{
+    return [self dataByComposingURLQueryUsingEncoding:NSUTF8StringEncoding];
+}
+
 @end

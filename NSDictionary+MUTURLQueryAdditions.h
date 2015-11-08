@@ -28,5 +28,7 @@ THE SOFTWARE.
 
 - (NSString *)stringByComposingURLQueryUsingEncoding:(NSStringEncoding)encoding;
 - (NSString *)stringByComposingURLQuery;
+- (NSData *)dataByComposingURLQueryUsingEncoding:(NSStringEncoding)encoding;
+- (NSData *)dataByComposingURLQuery;
 
 @end
