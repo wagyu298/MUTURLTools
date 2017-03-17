@@ -1,145 +1,29 @@
-MUTURLTools for Objective-C
+# MUTURLTools
 
-[WebHub](https://itunes.apple.com/jp/app/id597069002?mt=8)で使用しているURL文字列を処理するためのモジュールです。
+[![CI Status](http://img.shields.io/travis/wagyu298/MUTURLTools.svg?style=flat)](https://travis-ci.org/wagyu298/MUTURLTools)
+[![Version](https://img.shields.io/cocoapods/v/MUTURLTools.svg?style=flat)](http://cocoapods.org/pods/MUTURLTools)
+[![License](https://img.shields.io/cocoapods/l/MUTURLTools.svg?style=flat)](http://cocoapods.org/pods/MUTURLTools)
+[![Platform](https://img.shields.io/cocoapods/p/MUTURLTools.svg?style=flat)](http://cocoapods.org/pods/MUTURLTools)
 
-## NSString (MUTCaseCompareAdditions)
+## Example
 
-Case Insensitiveで文字列比較するカテゴリです。
+To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-    - (BOOL)caseInsensitiveHasPrefix:(NSString *)aString;
+## Requirements
 
-hasPrefix:のCaseInsensitive版です。
+## Installation
 
-    - (BOOL)caseInsensitiveHasSuffix:(NSString *)aString;
+MUTURLTools is available through [CocoaPods](http://cocoapods.org). To install
+it, simply add the following line to your Podfile:
 
-hasSuffix:のCaseInsensitive版です。
+```ruby
+pod "MUTURLTools"
+```
 
-    - (BOOL)caseInsensitiveIsEqualToString:(NSString *)aString;
+## Author
 
-isEqualToString:のCaseInsensitive版です。
+wagyu298
 
-## NSString (MUTURLEncodeAdditions)
+## License
 
-URLエンコードに関するカテゴリです。
-
-    - (NSString *)encodeURIComponentUsingEncoding:(NSStringEncoding)encoding;
-    - (NSString *)encodeURIComponent;
-
-JavaScriptのencodeURIComponent互換メソッドです。
-
-    - (NSString *)decodeURIComponentUsingEncoding:(NSStringEncoding)encoding;
-    - (NSString *)decodeURIComponent;
-
-JavaScriptのdecodeURIComponent互換メソッドです。
-
-    - (NSString *)encodeURLSafeUsingEncoding:(NSStringEncoding)encoding;
-    - (NSString *)encodeURLSafe;
-
-文字列を安全に（URLとしての意味を変えずに）URLエンコードします。
-（マルチバイト文字と " ", "<", ">" をURLエンコードします。）
-
-    - (NSString *)decodeURLSafeUsingEncoding:(NSStringEncoding)encoding;
-    - (NSString *)decodeURLSafe;
-
-文字列を安全にURLデコードします。
-（URLエンコードされていない%文字を%25にエンコードしてからデコードします。）
-
-    - (NSString *)encodeURLForHumanInput;
-    - (NSString *)decodeURLForHumanReadable;
-
-人間が入力した（あまり厳密でない）URLをエンコード／デコードします。
-
-## NSString (MUTPunycodeAdditions)
-
-    - (NSString *)punycodeEncode;
-    - (NSString *)punycodeDecode;
-
-RFC 3492に従ってPunycodeをエンコード／デコードします。
-Punycodeエンコードされたホスト名のエンコード／デコードにはNSString (MUTIDNAAdditions)を使用してください。
-
-
-## NSString (MUTIDNAAdditions)
-
-    - (NSString *)idnaToAscii;
-    - (NSString *)idnaToUnicode;
-
-RFC 3490に従ってホスト名をエンコード／デコードします。
-
-## NSString (MUTURLQueryAdditions)
-
-URL Queryパラメータ（aaa=bbb&ccc=ddd）をパースするカテゴリです。
-
-    - (NSDictionary *)dictionaryByParsingURLQueryWithEncoding:(NSStringEncoding)encoding;
-    - (NSDictionary *)dictionaryByParsingURLQuery;
-
-URL QueryパラメータをNSDictionaryに変換します。
-
-    - (NSArray *)arrayByParsingURLQueryWithEncoding:(NSStringEncoding)encoding;
-    - (NSArray *)arrayByParsingURLQuery;
-
-URL QueryパラメータをNSArrayに変換します。
-配列の要素は@{@"key":key,@"value":value}形式のNSDictionaryです。
-重複するキーを含むパラメータをパースする場合に使用できます。
-
-## NSArray (MUTURLQueryAdditions)
-
-    - (NSString *)stringByComposingURLQueryUsingEncoding:(NSStringEncoding)encoding;
-    - (NSString *)stringByComposingURLQuery;
-
-@{@"key":key,@"value":value}形式のNSDictionaryを要素とする配列をURL Queryパラメータ文字列に変換します。
-
-## NSDictionary (MUTURLQueryAdditions)
-
-    - (NSString *)stringByComposingURLQueryUsingEncoding:(NSStringEncoding)encoding;
-    - (NSString *)stringByComposingURLQuery;
-
-URL Queryパラメータ文字列に変換します。 
-
-## MUTURLComponents
-
-RFC 3986に従いURL文字列を以下の要素に分解します。
-
-    @property (strong, nonatomic) NSString *scheme;
-    @property (strong, nonatomic) NSString *query;
-    @property (strong, nonatomic) NSString *fragment;
-
-    @property (strong, nonatomic) NSString *username;
-    @property (strong, nonatomic) NSString *password;
-
-    @property (strong, nonatomic) NSString *host;
-    @property (strong, nonatomic) NSString *port;
-    @property (strong, nonatomic) NSString *path;
-
-    - (NSString *)userinfo;
-
-username@passwordを返します。
-
-    - (NSString *)authority;
-
-userinfo@host:portを返します。
-
-    - (NSString *)hierPart;
-
-authority+pathを返します。
-
-    - (NSString *)urlString;
-
-scheme:hierPart?query#fragmentを返します。
-
-    - (NSURL *)url;
-
-[NSURL URLWithString:[self urlString]]を返します。
-
-    - (id)initWithString:(NSString *)aString;
-    + (id)URLComponentsWithString:(NSString *)aString;
-
-initとAutoリリース。
-
-    - (void)parse:(NSString *)aString;
-
-URL文字列をパースしてメンバ変数に結果をセットします。
-
-    - (void)encode;
-    - (void)decode;
-
-メンバ変数をURLエンコード／デコードします。
+MUTURLTools is available under the MIT license. See the LICENSE file for more info.
