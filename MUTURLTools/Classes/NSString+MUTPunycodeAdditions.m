@@ -125,7 +125,7 @@ static NSStringEncoding utf32_encoding(void)
 {
   CFByteOrder byteOrder = CFByteOrderGetCurrent();
   assert(byteOrder != CFByteOrderUnknown);
-  return (byteOrder == CFByteOrderBigEndian ?  NSUTF32BigEndianStringEncoding :
+  return (byteOrder == CFByteOrderBigEndian ? NSUTF32BigEndianStringEncoding :
           NSUTF32LittleEndianStringEncoding);
 }
 
