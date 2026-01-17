@@ -1,6 +1,5 @@
 # MUTURLTools
 
-[![CI Status](http://img.shields.io/travis/wagyu298/MUTURLTools.svg?style=flat)](https://travis-ci.org/wagyu298/MUTURLTools)
 [![Version](https://img.shields.io/cocoapods/v/MUTURLTools.svg?style=flat)](http://cocoapods.org/pods/MUTURLTools)
 [![License](https://img.shields.io/cocoapods/l/MUTURLTools.svg?style=flat)](http://cocoapods.org/pods/MUTURLTools)
 [![Platform](https://img.shields.io/cocoapods/p/MUTURLTools.svg?style=flat)](http://cocoapods.org/pods/MUTURLTools)
