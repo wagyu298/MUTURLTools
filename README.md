@@ -1,9 +1,5 @@
 # MUTURLTools
 
-[![Version](https://img.shields.io/cocoapods/v/MUTURLTools.svg?style=flat)](http://cocoapods.org/pods/MUTURLTools)
-[![License](https://img.shields.io/cocoapods/l/MUTURLTools.svg?style=flat)](http://cocoapods.org/pods/MUTURLTools)
-[![Platform](https://img.shields.io/cocoapods/p/MUTURLTools.svg?style=flat)](http://cocoapods.org/pods/MUTURLTools)
-
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
@@ -12,11 +8,10 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Installation
 
-MUTURLTools is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+To install MUTURLTools, simply add the following line to your Podfile:
 
 ```ruby
-pod "MUTURLTools"
+pod 'MUTURLTools', :git => 'https://github.com/wagyu298/MUTURLTools.git'
 ```
 
 ## Author
