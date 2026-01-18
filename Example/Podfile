@@ -1,12 +1,21 @@
 use_frameworks!
 
 target 'MUTURLTools_Example' do
+  platform :ios, '12.0'
   pod 'MUTURLTools', :path => '../'
 
   target 'MUTURLTools_Tests' do
     inherit! :search_paths
 
     pod 'Specta'
-  pod 'Expecta'
+    pod 'Expecta'
+  end
+
+  post_install do |installer|
+    installer.pods_project.targets.each do |target|
+      target.build_configurations.each do |config|
+        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '12.0'
+      end
+    end
   end
 end
